@@ -14,6 +14,14 @@ Become an Auth Boss. Learn about different Auth methodologies.
 - [General Best Practices](#general-best-practices)
 - [Terminology](#terminology)
   - [Terms](#terms)
+    - [HTTP](#http)
+    - [HTTPS](#https)
+    - [TLS](#tls)
+    - [SSL](#ssl)
+    - [Cookie](#cookie)
+    - [JWT](#jwt)
+    - [2 (3, 4) Factor authentication](#2-3-4-factor-authentication)
+    - [Sessions](#sessions)
 - [Methodologies](#methodologies)
   - [Technologies](#technologies)
 - [Resources and Footnotes](#resources-and-footnotes)
@@ -71,19 +79,36 @@ There is a quite a bit of jargon in this sub-set of web development. At the time
 
 ## Terms 
 
-HTTP
+### [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 
-Cookie
+Stands for Hyper Text Transfer Protocol. This is a big one, and I'm not sure I can do it justice to explain simply without being reductive. The web is built around HTTP - it's the technology used to communicate between web servers and users. 
 
-TLS
+Your browser is considered an HTTP client - because it sends _requests_ to an HTTP server. There are many different kind of _requests_ that your client can make — you may have heard of some of the most popular ones — `GET` `POST` `PUT` and `DELETE`.
 
-SSL
+HTTP servers send _responses_ to your browser, the client — these responses are often called _Resources_. Resources could be (but are not limited to): HTML files, images, text, JSON, and more.
 
-JWT - A type of token based authentication ... 
+_Other Links on this topic_:
 
-2 (3, 4) Factor authentication 
+- [HTTP Made Really Easy](http://www.jmarshall.com/easy/http/#whatis)
+- [RFC2616 ](https://tools.ietf.org/html/rfc2616) — this is a massive document, that may be outdated, but at least lists the documents that have superseded it.
+- [rfc7235](https://tools.ietf.org/html/rfc7235) — http documentation specifically regarding Authentication. Another large, and (in my opinion) scary looking doc. I have not read this, nor the link above.
 
-Sessions
+
+### HTTPS
+
+### TLS
+
+### SSL
+
+
+### Cookie
+
+### JWT
+
+### 2 (3, 4) Factor authentication 
+
+### Sessions
+
 
 # Methodologies
 
@@ -92,6 +117,8 @@ Following is a list of technologies for establishing an authentication solution.
 ## Technologies
 
 Http BasicAuth
+
+HTTP digital access authentication
 
 Session based Authentication
 
