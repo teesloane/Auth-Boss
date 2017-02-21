@@ -12,11 +12,6 @@ Become an Auth Boss. Learn about different Auth methodologies.
   - [How:](#how)
 - [Examples cases](#examples-cases)
 - [General Best Practices](#general-best-practices)
-  - [Who:](#who-1)
-  - [Why:](#why-1)
-  - [How:](#how-1)
-- [Examples cases](#examples-cases-1)
-- [General Best Practices](#general-best-practices-1)
 - [Terminology](#terminology)
   - [Terms](#terms)
 - [Methodologies](#methodologies)
@@ -24,43 +19,6 @@ Become an Auth Boss. Learn about different Auth methodologies.
 - [Resources and Footnotes](#resources-and-footnotes)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-# Introduction
-
-The intention of this document is to chronicle and catalogue the methodologies of _authentication_ on the web. By _authentication_ I am referring to, in the simplest sense, the process of creating a system through which user's can "login" to an online service and be given access to otherwise protected resources.
-
-This quote might better sum up what I'm trying to cover:
-
-> Client authentication involves proving the identity of a client (or user) to a server on the Web. We will use the term “authentication” to refer to this problem.[1]
-
-***
-
-## Who:
-I am a self-taught developer with a passion for open source tech, learning, mentoring, and knowledge-sharing. 
-
-## Why:
-I am writing this guide, because I felt woefully at a loss for finding resources that explained safe, smart and current technologies and methods for authentication in a simple and concise manner. I decided it was time to put my research hat on and do some leg work. 
-
-## How:
-My writing style aims to be simple, terse, and to leverage layperson terms over jargon and tech-words. 
-
-**Disclaimer** : This document does not serve as an all-encompassing catalogue of all authentications methods for the web; nor does this document purport to provide the "best" methods of authentication.
-
-**Regarding mistakes, errors, and inconsistencies**: I am bound to make mistakes and miss many things. I AM NOT A SECURITY EXPERT. If you see something that could be improved make a pull request explaining what I missed + what I can improve. Bonus points if you're not a jerk about it.
-
-# Examples cases  
-
-I will use a single example across this document to illustrate a login flow both in terms of what is happening on the "client" (the user in front of their computer) and what is occurring on the "server" (behind the scenes, so to speak).
-
-Our example cases will feature a new imaginary friend: `Beorn`. Beorn likes making quilts, and often goes to `http://www.quiltmadness.com` to buy quilting supplies. Beorn has a user account on `quiltmadness` and we will see him continuously login across the example in this document. 
-
-# General Best Practices
-
-Before jumping into the technologies that exist for managing authentication, let's consider some best practices / things you should never do.
-
-Some of these items following may not directly pertain to login/authentication/user signups, but are generally useful and good to know. 
-
-- Never store passwords as plain text in a database.
-- Never write your own hashing algorithm (unless you're really really smart)
 # Introduction
 
 The intention of this document is to chronicle and catalogue the methodologies of _authentication_ on the web. By _authentication_ I am referring to, in the simplest sense, the process of creating a system through which user's can "login" to an online service and be given access to otherwise protected resources.
