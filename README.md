@@ -7,9 +7,9 @@ Become an Auth Boss. Learn about different Auth methodologies.
 **Table of Contents** 
 
 - [Introduction](#introduction)
-  - [Who:](#who)
-  - [Why:](#why)
-  - [How:](#how)
+  - [Who](#who)
+  - [Why](#why)
+  - [How](#how)
 - [Examples cases](#examples-cases)
 - [General Best Practices](#general-best-practices)
 - [Terminology](#terminology)
@@ -89,7 +89,7 @@ Stands for Hyper Text Transfer Protocol. This is a big one, and I'm not sure I c
 
 Your browser is considered an HTTP client - because it sends _requests_ to an HTTP server. There are many different kind of _requests_ that your client can make — you may have heard of some of the most popular ones — `GET` `POST` `PUT` and `DELETE`.
 
-HTTP servers send _responses_ to your browser, the client — these responses are often called _Resources_. Resources could be (but are not limited to): HTML files, images, text, JSON, and more.
+HTTP servers send _responses_ to your browser, the client — these responses come in the form of _Resources_. Resources could be (but are not limited to): HTML files, images, text, JSON, and more. You can (kind of) think of `resources` as "files" that come back from a server.
 
 _Other Links on this topic_:
 
@@ -124,15 +124,13 @@ Cookies, at the very base level, are small pieces of data that get stored on a _
 
 A common example of a web cookie: 
 
-You visit `http://quiltmadness.com` to buy some nice patterns and materials. You log in, and add three items to your cart. As you are about to "check out" in the online store and ship the items to your home, you hear a loud "bang!" and realize that you left a can of tuna in the microwave on high. Not good! You close the browser, instantly forgetting about your new quilt goodies,  and  go clean up the mess. After the smell of canned tuna has finally sank into the walls and carpet of your home, you return to your computer and revisit `https://quiltmadness.com` ... only to find... your items are still in your cart. How?!
-
-Cookies.
+You visit `http://quiltmadness.com` to buy some nice patterns and materials. You log in, and add three items to your cart. As you are about to "check out" in the online store and ship the items to your home, you hear a loud "bang!" and realize that you left a can of tuna in the microwave on high. Not good! You close the browser, instantly forgetting about your new quilt goodies,  and  go clean up the mess. After the smell of canned tuna has finally sank into the walls and carpet of your home, you return to your computer and revisit `https://quiltmadness.com` ... only to find... your items are still in your cart. How?! Cookies.
 
 There are different kinds of cookies. Some cookies will stick around in your browser for many days, while others will disappear as soon as you close your browser. 
 
-Cookies have played a big role in authentication in the past. Authentication cookies are commonly used by webserver to know that user is logged in or not; allowing a server to know whether or not the client can have access to otherwise protected routes. 
+Cookies have played a big role in authentication in the past. Authentication cookies are commonly used by web servers to know that user is logged in or not; allowing a server to know whether or not the client can have access to otherwise protected routes. 
 
-Sometimes cookies are considered nerfarious or insecure (see [cross site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting) or [cross-site requiest forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery). This can be the case, but there are also methods that can be taken to increase the security of cookies. For example, you can set a `secure` flag on a cookie meaning it can _only be transmitted over an encrypted connection (HTTPS`).
+Sometimes cookies are considered nerfarious or insecure (see [cross site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting) or [cross-site requiest forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery)). This can be the case, but there are also methods that can be taken to increase the security of cookies. For example, you can set a `secure` flag on a cookie meaning it can _only be transmitted over an encrypted connection (HTTPS`).
 
 [Persistent cookies](https://en.wikipedia.org/wiki/HTTP_cookie#Persistent_cookie) sometimes carry a negative connotation - in that they may be used by advertisers to record information about a user's web habits. On the other hand, they are also often used so that a user does not have to constantly reenter their login credentials everytime a user visits a site. 
 
