@@ -14,14 +14,13 @@ Become an Auth Boss. Learn about different Auth methodologies.
 - [General Best Practices](#general-best-practices)
 - [Terminology](#terminology)
   - [Terms](#terms)
+    - [Encryption](#encryption)
     - [HTTP](#http)
     - [HTTPS](#https)
-    - [TLS](#tls)
-    - [SSL](#ssl)
+    - [TLS / SSL](#tls--ssl)
     - [Cookie](#cookie)
-    - [JWT](#jwt)
-    - [2 (3, 4) Factor authentication](#2-3-4-factor-authentication)
     - [Sessions](#sessions)
+    - [2 (3, 4) Factor authentication](#2-3-4-factor-authentication)
 - [Methodologies](#methodologies)
   - [Technologies](#technologies)
 - [Resources and Footnotes](#resources-and-footnotes)
@@ -79,6 +78,11 @@ There is a quite a bit of jargon in this sub-set of web development. At the time
 
 ## Terms 
 
+### [Encryption](https://en.wikipedia.org/wiki/Encryption)
+
+From Wiki:
+> Encryption is the process of encoding messages or information in such a way that only authorized parties can access it.
+
 ### [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 
 Stands for Hyper Text Transfer Protocol. This is a big one, and I'm not sure I can do it justice to explain simply without being reductive. The web is built around HTTP - it's the technology used to communicate between web servers and users. 
@@ -94,20 +98,47 @@ _Other Links on this topic_:
 - [rfc7235](https://tools.ietf.org/html/rfc7235) — http documentation specifically regarding Authentication. Another large, and (in my opinion) scary looking doc. I have not read this, nor the link above.
 
 
-### HTTPS
+### [HTTPS](https://en.wikipedia.org/wiki/HTTPS)
 
-### TLS
+HTTPS is HTTP with more security. It goes hand in hand with `SSL / TLS` Originally made popular for payment transaction over the internet, it has become much more popular lately. You may recognize https as `that green text that shows up to the left of my url in the browser`; often accompanied by an icon of a lock, or something of the sort.
 
-### SSL
+HTTPS is built on top of HTTP but adds a layer of encryption using SSL/TLS to protect traffic between browsers and servers.
 
+HTTPS encrypts the information that's sent along with your HTTP requests. This is particular important when we start talking about authentication!
 
-### Cookie
+From wikipedia:
 
-### JWT
+> HTTPS creates a secure channel over an insecure network. This ensures reasonable protection from eavesdroppers and man-in-the-middle attacks, provided that adequate cipher suites are used and that the server certificate is verified and trusted.
 
-### 2 (3, 4) Factor authentication 
+### [TLS / SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security)
+
+TLS and SSL are a cryptographic protocol. TLS and SSL encrypt the data you send across a network—it is designed to prevent people from "eavesdropping" or tampering with the data that you are sending.
+
+There are some useful videos on youtube that help to explain some of these complex topics, but unfortunately I can't speak to the veracity of them all. This [video by MIT opencourseware](https://www.youtube.com/watch?v=S2iBR2ZlZf0) looks relatively useful!
+
+### [Cookie](https://en.wikipedia.org/wiki/HTTP_cookie)
+
+Cookies were a mystery to me for a while - I always thought they would be very complicated and did not want to have to learn what they did or how they worked. But no more! 
+
+Cookies, at the very base level, are small pieces of data that get stored on a _user's browser_. Cookies, in contrast to HTTP are _stateful_ — meaning that HTTP cannot store user information, but cookies can. 
+
+A common example of a web cookie: 
+
+You visit `http://quiltmadness.com` to buy some nice patterns and materials. You log in, and add three items to your cart. As you are about to "check out" in the online store and ship the items to your home, you hear a loud "bang!" and realize that you left a can of tuna in the microwave on high. Not good! You close the browser, isntantly forgetting about your new quilt goodies,  and  go clean up the mess. After the smell of canned tuna has finally sank into the walls and carpet of your home, you return to your computer and revisit `https://quiltmadness.com` ... only to find... your items are still in your cart. How?!
+
+Cookies.
+
+There are different kinds of cookies. Some cookies will stick around in your browser for many days, while others will disappear as soon as you close your browser. 
+
+Cookies have played a big role in authentication in the past. Authentication cookies are commonly used by webserver to know that user is logged in or not; allowing a server to know whether or not the client can have access to otherwise protected routes. 
+
+Sometimes cookies are considered nerfarious or insecure (see [cross site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting) or [cross-site requiest forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery). This can be the case, but there are also methods that can be taken to increase the security of cookies. For example, you can set a `secure` flag on a cookie meaning it can _only be transmitted over an encrypted connection (HTTPS`).
+
+[Persistent cookies](https://en.wikipedia.org/wiki/HTTP_cookie#Persistent_cookie) sometimes carry a negative connotation - in that they may be used by advertisers to record information about a user's web habits. On the other hand, they are also often used so that a user does not have to constantly reenter their login credentials everytime a user visits a site. 
 
 ### Sessions
+
+### 2 (3, 4) Factor authentication 
 
 
 # Methodologies
