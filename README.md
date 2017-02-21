@@ -36,13 +36,13 @@ This quote might better sum up what I'm trying to cover:
 
 ***
 
-## Who:
+## Who
 I am a self-taught developer with a passion for open source tech, learning, mentoring, and knowledge-sharing. 
 
-## Why:
+## Why
 I am writing this guide, because I felt woefully at a loss for finding resources that explained safe, smart and current technologies and methods for authentication in a simple and concise manner. I decided it was time to put my research hat on and do some leg work. 
 
-## How:
+## How
 My writing style aims to be simple, terse, and to leverage layperson terms over jargon and tech-words. 
 
 **Disclaimer** : This document does not serve as an all-encompassing catalogue of all authentications methods for the web; nor does this document purport to provide the "best" methods of authentication.
