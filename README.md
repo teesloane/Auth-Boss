@@ -1,6 +1,29 @@
+
 # Auth-Boss
 Become an Auth Boss. Learn about different Auth methodologies.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents** 
+
+- [Introduction](#introduction)
+  - [Who:](#who)
+  - [Why:](#why)
+  - [How:](#how)
+- [Examples cases](#examples-cases)
+- [General Best Practices](#general-best-practices)
+  - [Who:](#who-1)
+  - [Why:](#why-1)
+  - [How:](#how-1)
+- [Examples cases](#examples-cases-1)
+- [General Best Practices](#general-best-practices-1)
+- [Terminology](#terminology)
+  - [Terms](#terms)
+- [Methodologies](#methodologies)
+  - [Technologies](#technologies)
+- [Resources and Footnotes](#resources-and-footnotes)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 # Introduction
 
 The intention of this document is to chronicle and catalogue the methodologies of _authentication_ on the web. By _authentication_ I am referring to, in the simplest sense, the process of creating a system through which user's can "login" to an online service and be given access to otherwise protected resources.
