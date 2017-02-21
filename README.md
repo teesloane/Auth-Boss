@@ -124,7 +124,7 @@ Cookies, at the very base level, are small pieces of data that get stored on a _
 
 A common example of a web cookie: 
 
-You visit `http://quiltmadness.com` to buy some nice patterns and materials. You log in, and add three items to your cart. As you are about to "check out" in the online store and ship the items to your home, you hear a loud "bang!" and realize that you left a can of tuna in the microwave on high. Not good! You close the browser, isntantly forgetting about your new quilt goodies,  and  go clean up the mess. After the smell of canned tuna has finally sank into the walls and carpet of your home, you return to your computer and revisit `https://quiltmadness.com` ... only to find... your items are still in your cart. How?!
+You visit `http://quiltmadness.com` to buy some nice patterns and materials. You log in, and add three items to your cart. As you are about to "check out" in the online store and ship the items to your home, you hear a loud "bang!" and realize that you left a can of tuna in the microwave on high. Not good! You close the browser, instantly forgetting about your new quilt goodies,  and  go clean up the mess. After the smell of canned tuna has finally sank into the walls and carpet of your home, you return to your computer and revisit `https://quiltmadness.com` ... only to find... your items are still in your cart. How?!
 
 Cookies.
 
@@ -135,6 +135,8 @@ Cookies have played a big role in authentication in the past. Authentication coo
 Sometimes cookies are considered nerfarious or insecure (see [cross site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting) or [cross-site requiest forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery). This can be the case, but there are also methods that can be taken to increase the security of cookies. For example, you can set a `secure` flag on a cookie meaning it can _only be transmitted over an encrypted connection (HTTPS`).
 
 [Persistent cookies](https://en.wikipedia.org/wiki/HTTP_cookie#Persistent_cookie) sometimes carry a negative connotation - in that they may be used by advertisers to record information about a user's web habits. On the other hand, they are also often used so that a user does not have to constantly reenter their login credentials everytime a user visits a site. 
+
+You can see what cookies are sent with requests by navigating to your (in chrome) developer tools and opening the `network tab`. Refreshing your page will display a list of incoming resources, of which you can select one and view the `headers` for the page. Scroll through the list and see if you find any cookies!
 
 ### Sessions
 
