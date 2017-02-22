@@ -53,7 +53,7 @@ My writing style aims to be simple, terse, and to leverage layperson terms over 
 
 I will use a single example across this document to illustrate a login flow both in terms of what is happening on the "client" (the user in front of their computer) and what is occurring on the "server" (behind the scenes, so to speak).
 
-Our example cases will feature a new imaginary friend: `Beorn`. Beorn likes making quilts, and often goes to `http://www.quiltmadness.com` to buy quilting supplies. Beorn has a user account on `quiltmadness` and we will see him continuously login across the examples in this document. 
+Our example cases will feature a new imaginary friend: `Beorn`. Beorn likes knitting, and often goes to `http://www.knittingworld.com` to buy quilting supplies. Beorn has a user account on `knittingworld` and we will see him continuously login across the examples in this document. 
 
 # General Best Practices
 
@@ -89,12 +89,12 @@ Stands for Hyper Text Transfer Protocol. This is a big one, and I'm not sure I c
 
 Your browser is considered an HTTP client - because it sends _requests_ to an HTTP server. There are many different kind of _requests_ that your client can make — you may have heard of some of the most popular ones — `GET` `POST` `PUT` and `DELETE`.
 
-HTTP servers send _responses_ to your browser, the client — these responses come in the form of _Resources_. Resources could be (but are not limited to): HTML files, images, text, JSON, and more. You can (kind of) think of `resources` as "files" that come back from a server.
+HTTP servers send _responses_ to your browser — the client — these responses come in the form of _Resources_. Resources could be (but are not limited to): HTML files, images, text, JSON, and more. You can (kind of) think of `resources` as "files" that come back from a server.
 
 _Other Links on this topic_:
 
 - [HTTP Made Really Easy](http://www.jmarshall.com/easy/http/#whatis)
-- [RFC2616 ](https://tools.ietf.org/html/rfc2616) — this is a massive document, that may be outdated, but at least lists the documents that have superseded it.
+- [RFC2616 ](https://tools.ietf.org/html/rfc2616) — this is a massive document-spec-thing on HTTP. It is listed as outdated, but also lists the documents that have superseded it.
 - [rfc7235](https://tools.ietf.org/html/rfc7235) — http documentation specifically regarding Authentication. Another large, and (in my opinion) scary looking doc. I have not read this, nor the link above.
 
 
@@ -112,7 +112,7 @@ From wikipedia:
 
 ### [TLS / SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security)
 
-TLS and SSL are a cryptographic protocol. TLS and SSL encrypt the data you send across a network—it is designed to prevent people from "eavesdropping" or tampering with the data that you are sending.
+TLS and SSL are a cryptographic protocol. TLS and SSL encrypt the data you send across a network — it is designed to prevent people from "eavesdropping" or tampering with the data that you are sending.
 
 There are some useful videos on youtube that help to explain some of these complex topics, but unfortunately I can't speak to the veracity of them all. This [video by MIT opencourseware](https://www.youtube.com/watch?v=S2iBR2ZlZf0) looks relatively useful!
 
@@ -124,21 +124,41 @@ Cookies, at the very base level, are small pieces of data that get stored on a _
 
 A common example of a web cookie: 
 
-You visit `http://quiltmadness.com` to buy some nice patterns and materials. You log in, and add three items to your cart. As you are about to "check out" in the online store and ship the items to your home, you hear a loud "bang!" and realize that you left a can of tuna in the microwave on high. Not good! You close the browser, instantly forgetting about your new quilt goodies,  and  go clean up the mess. After the smell of canned tuna has finally sank into the walls and carpet of your home, you return to your computer and revisit `https://quiltmadness.com` ... only to find... your items are still in your cart. How?! Cookies.
+You visit `http://knittingworld.com` to buy some nice patterns and materials for your next knitting project. You log in, and add three items to your cart. As you are about to "check out" in the online store and ship the items to your home, you hear a loud "bang!" and realize that you left a can of tuna in the microwave on high. Not good! You close the browser, instantly forgetting about your new quilt goodies,  and  go clean up the mess. After the smell of canned tuna has finally sank into the walls and carpet of your home, you return to your computer and revisit `https://knittingworld.com` ... only to find... your items are still in your cart. How?! Cookies.
 
 There are different kinds of cookies. Some cookies will stick around in your browser for many days, while others will disappear as soon as you close your browser. 
 
 Cookies have played a big role in authentication in the past. Authentication cookies are commonly used by web servers to know that user is logged in or not; allowing a server to know whether or not the client can have access to otherwise protected routes. 
 
-Sometimes cookies are considered nerfarious or insecure (see [cross site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting) or [cross-site requiest forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery)). This can be the case, but there are also methods that can be taken to increase the security of cookies. For example, you can set a `secure` flag on a cookie meaning it can _only be transmitted over an encrypted connection (HTTPS`).
+Sometimes cookies are considered nerfarious or insecure (see [cross site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting) or [cross-site requiest forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery)). This can be the case, but there are also methods that can be taken to increase the security of cookies. For example, you can set a `secure` flag on a cookie meaning it can only be transmitted over an encrypted connection (HTTPS`).
 
 [Persistent cookies](https://en.wikipedia.org/wiki/HTTP_cookie#Persistent_cookie) sometimes carry a negative connotation - in that they may be used by advertisers to record information about a user's web habits. On the other hand, they are also often used so that a user does not have to constantly reenter their login credentials everytime a user visits a site. 
 
 You can see what cookies are sent with requests by navigating to your (in chrome) developer tools and opening the `network tab`. Refreshing your page will display a list of incoming resources, of which you can select one and view the `headers` for the page. Scroll through the list and see if you find any cookies!
 
-### Sessions
+### [Sessions](https://en.wikipedia.org/wiki/Session_(web_analytics)) / [Session Management](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)
 
-### 2 (3, 4) Factor authentication 
+Rather than attempt to begin with my simplistic attempt at describing Sessions, I will quote from the OWASP session management cheat sheet:
+
+> A web session is a sequence of network HTTP request and response transactions associated to the same user. Modern and complex web applications require the retaining of information or status about each user for the duration of multiple requests. Therefore, sessions provide the ability to establish variables – such as access rights and localization settings – which will apply to each and every interaction a user has with the web application for the duration of the session.
+
+A step-by-step, general example:
+
+- Beorn goes to `http://knittingworld.com` to get some nice yarn.
+- When Beorn logs in, he is sending his credentials to a server.
+- When the credentials reach the server, the server, in one way or another, needs to check if Beorn is a user in their database. At this point, Beorn is not yet logged in.
+- The server looks in the database to see if Beorn's username and password match a record in the database. It does! Excellent, things are looking good!
+- Note: This is where things get a bit tricky. HTTP is _stateless_ ... that means that there is no persistent data that sticks around in HTTP requests — so right now, although Beorn is "in the middle of logging in" — there's nothing (yet) to identify him as "logged in" on future requests. He needs something to _identify_ him on future requests to the server—especially if he's trying to buy things that require him to be logged in. This is where the idea of authentication sessions come in:
+- Now that the server knows who Beorn is, and has identified him as a user proper in the database, the server will send him (or "return" ) a special "token" or "session id" — that can identify Beorn as someone who is "logged in" on future requests. 
+- Note: the return "token" or "session id" has commonly been in the form of cookies — session cookies — but it is becoming more common to use token's (such as JSON Web Tokens)
+- When Beorn logs out from `http://knittingworld.com`, his session id will expire (so that next time he visits, he will have to log in again).
+
+
+More links on sessions:
+
+[How does a web session work](http://machinesaredigging.com/2013/10/29/how-does-a-web-session-work/)
+
+[What are web sessions?](http://stackoverflow.com/questions/3804209/what-are-sessions-how-do-they-work)
 
 
 # Methodologies
@@ -173,3 +193,6 @@ http://stackoverflow.com/questions/549/the-definitive-guide-to-form-based-websit
 https://blog.codinghorror.com/youre-probably-storing-passwords-incorrectly/
 
 https://pdos.csail.mit.edu/papers/webauth:sec10.pdf
+
+[OWASP Authentication Cheat Sheet
+](https://www.owasp.org/index.php/Authentication_Cheat_Sheet)
