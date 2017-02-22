@@ -27,6 +27,7 @@ Become an Auth Boss. Learn about different authentication methodologies on the w
   - [OAuth](#oauth)
   - [OpenId](#openid)
 - [Resources and Footnotes](#resources-and-footnotes)
+- [Thank-You](#thank-you)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 # Introduction
@@ -403,3 +404,11 @@ https://pdos.csail.mit.edu/papers/webauth:sec10.pdf
 
 [OWASP Authentication Cheat Sheet
 ](https://www.owasp.org/index.php/Authentication_Cheat_Sheet)
+
+# Thank-You
+Thank you to the kind people who  put up with my million++ questions.
+
+- [@neil](https://github.com/nchudleigh)
+- [@Alex-wilmer](https://github.com/alex-wilmer)
+- [@AdrianLi](https://github.com/adrianmcli)
+- [@Rohan](https://github.com/rohannair)
