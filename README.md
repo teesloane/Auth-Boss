@@ -21,14 +21,13 @@ Become an Auth Boss. Learn about different Auth methodologies.
     - [Cookies](#cookies)
     - [Sessions / Session Management](#sessions--session-management)
 - [Methodologies](#methodologies)
-  - [Technologies](#technologies)
-    - [HTTP Basic Authentication](#http-basic-authentication)
-    - [HTTP digital access authentication](#http-digital-access-authentication)
-    - [Session based Authentication](#session-based-authentication)
-    - [OAuth](#oauth)
-    - [OpenId](#openid)
-    - [Token based Authentication](#token-based-authentication)
-    - [JWT](#jwt)
+  - [HTTP Basic Authentication](#http-basic-authentication)
+  - [HTTP digital access authentication](#http-digital-access-authentication)
+  - [Session based Authentication](#session-based-authentication)
+  - [OAuth](#oauth)
+  - [OpenId](#openid)
+  - [Token based Authentication](#token-based-authentication)
+  - [JWT](#jwt)
 - [Resources and Footnotes](#resources-and-footnotes)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -169,9 +168,8 @@ More links on sessions:
 
 It's time to get into the actual body of text on writing authentication. Following is a list of technologies for establishing an authentication solution. This is not an exhaustic list.
 
-## Technologies
 
-### [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
+## [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
 
 HTTP Basic authentication ( or "Basic Auth") has been around for quite some time. It seems that people tend to use it for it's simplicity and it's wide support across browsers. Here's how it would work in the case of our friend Beorn.
 
@@ -203,17 +201,17 @@ Some of these links are opinionated. I did not find many articles discussing Bas
 
 [Why the hell does your api still use basic auth?](http://swaggadocio.com/post/48223179207/why-the-hell-does-your-api-still-use-http-basic)
 
-### HTTP digital access authentication
+## HTTP digital access authentication
 
-### Session based Authentication
+## Session based Authentication
 
-### OAuth
+## OAuth
 
-### OpenId
+## OpenId
 
-### Token based Authentication
+## Token based Authentication
 
-### JWT
+## JWT
 
 
 # Resources and Footnotes
