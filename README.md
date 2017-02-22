@@ -191,7 +191,7 @@ Some of these links are opinionated. I did not find many articles discussing Bas
 
 [Why the hell does your api still use basic auth?](http://swaggadocio.com/post/48223179207/why-the-hell-does-your-api-still-use-http-basic)
 
-## Session based Authentication
+## [Session based Authentication](https://en.wikipedia.org/wiki/Session_(web_analytics))
 
 Session authentication has been around for a while and seems to be largely advocated. People seem to be moving away from sessions as other options (token based authentication) seem to leverage more modern web architectures (RESTful apis, state-lessness, authentication across more than one API, microservices etc). The key component to Session based authentication, is that a user's login is associated with a _piece of state_ either _in memory_ on the server, or in a key value store (like Redis).
 
@@ -207,7 +207,21 @@ Let's look at an example of our friend Beorn using session based authentication.
 - When Beorn logs out from `http://knittingworld.com`, his session id will expire and so will his session cookie.
  
 
-## OAuth
+## [OAuth](https://en.wikipedia.org/wiki/OAuth)
+
+OAuth is an authentication protocol that allows users to perform an authentication against a server without a password. OAuth has seen various iterations — OAuth 1.0, OAuth 1.0a, and OAuth 2.0.
+
+If you have ever logged into a service by using your Twitter, Google, or Facebook account, then you have used OAuth.
+
+OAuth Providers (Facebook, Google, etc), operate through private, unique, access tokens that provide the means of authentication for your service (which is now an OAuth client) to allow logins. 
+
+In this process, you will need to register your server as a OAuth Client. This will usually set you up with a `client id`, and `client secret`. Users that login to your service will be reloacted to the OAuth Provider where the user can confirm that they do indeed want to "login" (aka, allow the server they are logging in to, to have access to any required information from the OAuth Provider. )
+
+
+From the [OWASP Authentication Cheat Sheet](https://www.owasp.org/index.php/Authentication_Cheat_Sheet#OAuth)
+>The recommendation is to use and implement OAuth 1.0a or OAuth 2.0, since the very first version (OAuth1.0) has been found to be vulnerable to session fixation.
+
+> OAuth 2.0 relies on HTTPS for security and is currently used and implemented by API's from companies such as Facebook, Google, Twitter and Microsoft. OAuth1.0a is more difficult to use because it requires the use of cryptographic libraries for digital signatures. However, since OAuth1.0a does not rely on HTTPS for security it can be more suited for higher risk transactions.
 
 ## OpenId
 
