@@ -121,6 +121,12 @@ TLS and SSL are a cryptographic protocol. TLS and SSL encrypt the data you send 
 
 There are some useful videos on youtube that help to explain some of these complex topics, but unfortunately I can't speak to the veracity of them all. This [video by MIT opencourseware](https://www.youtube.com/watch?v=S2iBR2ZlZf0) looks relatively useful!
 
+### [State](https://en.wikipedia.org/wiki/State_(computer_science))
+
+This document will make reference to the terms `state` `stateful`, `stateless` and `piece of state`. These are broad terms, that vary in their definition. For the sake of this article, a "piece of state" or something that is "stateful" is describing a piece of data that is living in memory...somewhere. 
+
+HTTP requests are commonly described as "stateless". When you visit a website and login you are passing some information along with your HTTP request — something that _identifies you_. Whatever method of authentication you need to use to identity yourself has to be "attached" to HTTP requests in someway or another, _because_ you cannot simply store that state within the HTTP protocol itself — it has to take another form that can "ride along" with your HTTP requests, so to speak (as you will see in the rest of this documentation.). 
+
 ### [Cookies](https://en.wikipedia.org/wiki/HTTP_cookie)
 
 Cookies, at the very base level, are small pieces of data that get stored on a _user's browser_. Cookies, in contrast to HTTP are _stateful_ — meaning that HTTP cannot store user information, but cookies can. 
@@ -248,7 +254,7 @@ OpenId is another authentication protocol that (like OAuth) does not require a p
 
 Although started in 2005, More recently (2014 ish), OpenId published `OpenId Connect` which is an "interoperable authentication protocol based on the OAuth 2.0 family of specifications" ([Quote](http://openid.net/connect/faq/))
 
-**What's the Difference between this and OAuth?**
+**What's the Difference between OpenId and OAuth?**
 
 OpenId is similar to OAuth, but has some differences. In similarity, OpenId relies on an Identity, `Provider` that interacts with third party `relying parties` (the site you are logging into) to provide authentication credentials. 
 
@@ -259,7 +265,7 @@ Dissimilarly, you might use OAuth to allow the site you are logging into, to hav
 - Twitter prompts Beorn to use OAuth to connect his Google account so that he can import his contacts that also have Twitter.
 - Beorn does this, and now he is tweeting non-stop.
 
-Links:
+**Links**
 
 [What is OpenId?](http://openid.net/get-an-openid/what-is-openid/)
 [OpenId Connect FAQ](http://openid.net/connect/faq/)
@@ -275,6 +281,58 @@ Here's an image of Stack Overflow's login page, that offers many different authe
 ![](images/SO_login.png)
 
 ## Token based Authentication
+
+Token based authentication has become more popular lately, with the rise of RESTful apis, single-page-apps and micro-services. 
+
+**What is a token?**
+
+A token is just a small piece of data. 
+
+An authentication system that leverages token-based-authentication means that requests a user makes to a server carries a token along with it, to perform authentication logic on. When HTTP requests are made, the token is the piece of data that verifies a user's eligibility to access a resource.
+
+**How is this different from cookie based authentication?**
+
+Token authentication is stateless, whereas session based authentication means that somewhere in your server you have piece of state that is keeping track of users. 
+
+Auth0's blog post [Cookies vs Tokens: The Definitive Guide ](https://auth0.com/blog/cookies-vs-tokens-definitive-guide/) draws out a great step-by-step comparison of the difference in authentication flows between cookies and tokens (so, that means Beorn shall be missing from this example section):
+
+**Session based authentication flow**:
+
+```
+1. User enters their login credentials
+2. Server verifies the credentials are correct and creates a session which is then stored in a database
+3. A cookie with the session ID is placed in the users browser
+4. On subsequent requests, the session ID is verified against the database and if valid the request processed
+5. Once a user logs out of the app, the session is destroyed both client and server side
+```
+
+**Token based authentication flow**:
+
+```
+1. User enters their login credentials
+2. Server verifies the credentials are correct and returns a signed token
+3. This token is stored client-side, most commonly in local storage - but can be stored in session storage or a cookie as well
+4. Subsequent requests to the server include this token as an additional Authorization header or through one of the other methods mentioned above
+5. The server decodes the JWT and if the token is valid processes the request
+6. Once a user logs out, the token is destroyed client-side, no interaction with the server is necessary
+```
+
+A key take away is that tokens are stateless. A back-end server doesn't need to keep a record of tokens, or of currently active sessions.
+
+**Wow token's sound cool. Are they better than session based auth?**
+
+You're asking the wrong person bub. I'm just writing this to help my brain figure things out. Like most things on the internet there are lots of people with strong opinions one way or another. I'm doing my best to make it the case that you won't find those here. (Although many of the links I've posted from my research are full of strong opinions or are financially biased)
+
+For more disclaimers visit the `disclaimer` section above. 
+
+**Links**
+
+[Token Based Authentication - Implemenation Demonstration - W3](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/)
+[What is token based Authentication - SO](http://stackoverflow.com/questions/1592534/what-is-token-based-authentication)
+[Token Based Authentication Made Easy](https://auth0.com/learn/token-based-authentication-made-easy/#!)
+[The Ins and Outs of Token Based Authentication](https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication)
+[Cookies vs Tokens: The Definitive Guide (opinionated)](https://auth0.com/blog/cookies-vs-tokens-definitive-guide/)
+
 
 ## JWT
 
