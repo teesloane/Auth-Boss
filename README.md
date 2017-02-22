@@ -223,6 +223,10 @@ From the [OWASP Authentication Cheat Sheet](https://www.owasp.org/index.php/Auth
 
 > OAuth 2.0 relies on HTTPS for security and is currently used and implemented by API's from companies such as Facebook, Google, Twitter and Microsoft. OAuth1.0a is more difficult to use because it requires the use of cryptographic libraries for digital signatures. However, since OAuth1.0a does not rely on HTTPS for security it can be more suited for higher risk transactions.
 
+Links
+
+[A Fun explanation of OAuth involving Donuts](http://stackoverflow.com/a/32534239)
+
 ## OpenId
 
 ## Token based Authentication
