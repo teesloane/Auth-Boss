@@ -155,9 +155,8 @@ You can find a step-by-step example of session-based authentication in the `Meth
 
 More links on sessions:
 
-[How does a web session work](http://machinesaredigging.com/2013/10/29/how-does-a-web-session-work/)
-
-[What are web sessions?](http://stackoverflow.com/questions/3804209/what-are-sessions-how-do-they-work)
+- [How does a web session work](http://machinesaredigging.com/2013/10/29/how-does-a-web-session-work/)
+- [What are web sessions?](http://stackoverflow.com/questions/3804209/what-are-sessions-how-do-they-work)
 
 
 # Methodologies
@@ -187,15 +186,15 @@ Some important notes on HTTP Basic Authentication
 - When the password arrives at the server, it will be hashed by your encryption algorithm (which you absolutely should have ) to see if it matches the password in the database. Some people argue that the processing power to encrypt passwords / check on every request is not efficient. I have no say in this matter because I don't know. But consider that idea as you look into other authentication methods.
 
 
-Links
+**Links**
 
 Some of these links are opinionated. I did not find many articles discussing Basic Auth, although it seems to still be a viable option for companies today. 
 
-[Basic Authentication on OWASP](https://www.owasp.org/index.php/Basic_Authentication)
+- [Basic Authentication on OWASP](https://www.owasp.org/index.php/Basic_Authentication)
 
-[Why does stripe use HTTP basic auth with a token instead of a header?](https://www.quora.com/Why-does-Stripe-use-HTTP-Basic-Auth-with-a-token-instead-of-a-header?share=1)
+- [Why does stripe use HTTP basic auth with a token instead of a header?](https://www.quora.com/Why-does-Stripe-use-HTTP-Basic-Auth-with-a-token-instead-of-a-header?share=1)
 
-[Why the hell does your api still use basic auth?](http://swaggadocio.com/post/48223179207/why-the-hell-does-your-api-still-use-http-basic)
+- [Why the hell does your api still use basic auth?](http://swaggadocio.com/post/48223179207/why-the-hell-does-your-api-still-use-http-basic)
 
 ## [Session based Authentication](https://en.wikipedia.org/wiki/Session_(web_analytics))
 
@@ -238,9 +237,9 @@ From the [OWASP Authentication Cheat Sheet](https://www.owasp.org/index.php/Auth
 
 > OAuth 2.0 relies on HTTPS for security and is currently used and implemented by API's from companies such as Facebook, Google, Twitter and Microsoft. OAuth1.0a is more difficult to use because it requires the use of cryptographic libraries for digital signatures. However, since OAuth1.0a does not rely on HTTPS for security it can be more suited for higher risk transactions.
 
-Links
+**Links**
 
-[A Fun explanation of OAuth involving Donuts](http://stackoverflow.com/a/32534239)
+- [A Fun explanation of OAuth involving Donuts](http://stackoverflow.com/a/32534239)
 
 ## [OpenId](https://en.wikipedia.org/wiki/OpenID)
 
@@ -267,12 +266,12 @@ Dissimilarly, you might use OAuth to allow the site you are logging into, to hav
 
 **Links**
 
-[What is OpenId?](http://openid.net/get-an-openid/what-is-openid/)
-[OpenId Connect FAQ](http://openid.net/connect/faq/)
-[OpenId Connect Video](https://www.youtube.com/watch?v=Kb56GzQ2pSk)
-[What's the differene between OpenId vs OAuth?](http://stackoverflow.com/questions/3376141/openid-vs-oauth?rq=1)
-[What's the differene between OpenId vs OAuth? (different thread)](http://stackoverflow.com/questions/1087031/whats-the-difference-between-openid-and-oauth)
-[OpenId according to Dave -- I like this one, albeit dated](https://www.youtube.com/watch?v=xcmY8Pk-qEk)
+- [What is OpenId?](http://openid.net/get-an-openid/what-is-openid/)
+- [OpenId Connect FAQ](http://openid.net/connect/faq/)
+- [OpenId Connect Video](https://www.youtube.com/watch?v=Kb56GzQ2pSk)
+- [What's the differene between OpenId vs OAuth?](http://stackoverflow.com/questions/3376141/openid-vs-oauth?rq=1)
+- [What's the differene between OpenId vs OAuth? (different thread)](http://stackoverflow.com/questions/1087031/whats-the-difference-between-openid-and-oauth)
+- [OpenId according to Dave -- I like this one, albeit dated](https://www.youtube.com/watch?v=xcmY8Pk-qEk)
 
 ***
 
@@ -327,11 +326,11 @@ For more disclaimers visit the `disclaimer` section above.
 
 **Links**
 
-[Token Based Authentication - Implemenation Demonstration - W3](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/)
-[What is token based Authentication - SO](http://stackoverflow.com/questions/1592534/what-is-token-based-authentication)
-[Token Based Authentication Made Easy](https://auth0.com/learn/token-based-authentication-made-easy/#!)
-[The Ins and Outs of Token Based Authentication](https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication)
-[Cookies vs Tokens: The Definitive Guide (opinionated)](https://auth0.com/blog/cookies-vs-tokens-definitive-guide/)
+- [Token Based Authentication - Implemenation Demonstration - W3](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/)
+- [What is token based Authentication - SO](http://stackoverflow.com/questions/1592534/what-is-token-based-authentication)
+- [Token Based Authentication Made Easy](https://auth0.com/learn/token-based-authentication-made-easy/#!)
+- [The Ins and Outs of Token Based Authentication](https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication)
+- [Cookies vs Tokens: The Definitive Guide (opinionated)](https://auth0.com/blog/cookies-vs-tokens-definitive-guide/)
 
 
 ## JWT
