@@ -116,9 +116,7 @@ TLS and SSL are a cryptographic protocol. TLS and SSL encrypt the data you send 
 
 There are some useful videos on youtube that help to explain some of these complex topics, but unfortunately I can't speak to the veracity of them all. This [video by MIT opencourseware](https://www.youtube.com/watch?v=S2iBR2ZlZf0) looks relatively useful!
 
-### [Cookie](https://en.wikipedia.org/wiki/HTTP_cookie)
-
-Cookies were a mystery to me for a while - I always thought they would be very complicated and did not want to have to learn what they did or how they worked. But no more! 
+### [Cookies](https://en.wikipedia.org/wiki/HTTP_cookie)
 
 Cookies, at the very base level, are small pieces of data that get stored on a _user's browser_. Cookies, in contrast to HTTP are _stateful_ — meaning that HTTP cannot store user information, but cookies can. 
 
@@ -163,23 +161,53 @@ More links on sessions:
 
 # Methodologies
 
-Following is a list of technologies for establishing an authentication solution.
+It's time to get into the actual body of text on writing authentication. Following is a list of technologies for establishing an authentication solution. This is not an exhaustic list.
 
 ## Technologies
 
-Http BasicAuth
+### [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
 
-HTTP digital access authentication
+HTTP Basic authentication ( or "Basic Auth") has been around for quite some time. It seems that people tend to use it for it's simplicity and it's wide support across browsers. Here's how it would work in the case of our friend Beorn.
 
-Session based Authentication
+- Beorn goes to `http://knittingworld.com` to get some nice yarn.
+- Beorn types in his username and password into a login _form_. This information gets `POST`ed to the server using an XML http request (although you might be more familiar with the term `ajax`  or, `fetch` request).
+- The POST request from the client contains _headers_ that have the authorization information (username and password) attached. This header might look something like this: 
 
-OAuth
+`Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==`
 
-OpenId
+- The server goes on to validate the authentication header and determine if a user can proceed to a restricted route or not.
 
-Token based Authentication
+Some important notes on HTTP Basic Authentication
 
-JWT
+- The example authorization header above does not look like a username and password, but that is because it is base64 encoded. IT IS NOT ENCRYPTED.
+- USE HTTPS. If you just use HTTP, authentication credentials are sent to a server as PLAIN TEXT. A user's username and password are being sent over the wire merely as base64 encoded text — which is trivial to decode. By using HTTPS / SSL you are ensuring that data sent from the client to the server is encrypted.
+- The use of HTTPS / SSL might Basic Auth a viable method for your authentication solution but there are still some caveats. 
+- There needs to be _some_ sort of caching of a username / password, _because_ HTTP requests are stateless; credentials _have_ to be sent to the server on every request!
+- Where are you going to cache a user's password + username? Will it be visible in a cookie? Is that secure? You could perhaps run an encryption algorithm on credentials and store it as a cookie, but it's still public visible in your browser. Continuing on...
+- When the password arrives at the server, it will be hashed by your encryption algorithm (which you absolutely should have ) to see if it matches the password in the database. Some people argue that the processing power to encrypt passwords / check on every request is not efficient. I have no say in this matter because I don't know. But consider that idea as you look into other authentication methods.
+
+
+Links
+
+Some of these links are opinionated. I did not find many articles discussing Basic Auth, although it seems to still be a viable option for companies today. 
+
+[Basic Authentication on OWASP](https://www.owasp.org/index.php/Basic_Authentication)
+
+[Why does stripe use HTTP basic auth with a token instead of a header?](https://www.quora.com/Why-does-Stripe-use-HTTP-Basic-Auth-with-a-token-instead-of-a-header?share=1)
+
+[Why the hell does your api still use basic auth?](http://swaggadocio.com/post/48223179207/why-the-hell-does-your-api-still-use-http-basic)
+
+### HTTP digital access authentication
+
+### Session based Authentication
+
+### OAuth
+
+### OpenId
+
+### Token based Authentication
+
+### JWT
 
 
 # Resources and Footnotes
