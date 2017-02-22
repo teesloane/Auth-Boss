@@ -258,6 +258,9 @@ You're asking the wrong person pal. I'm just writing this to help my brain figur
 
 For more fun disclaimers visit the `disclaimer` section above. 
 
+**Types of Tokens**
+Some common tokens include JWT (discussed below), SWT (Simple web tokens) and SAML (security assertion markup languages)
+
 **Links**
 
 - [Token Based Authentication - Implemenation Demonstration - W3](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/)
