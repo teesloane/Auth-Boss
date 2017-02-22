@@ -213,9 +213,18 @@ OAuth is an authentication protocol that allows users to perform an authenticati
 
 If you have ever logged into a service by using your Twitter, Google, or Facebook account, then you have used OAuth.
 
-OAuth Providers (Facebook, Google, etc), operate through private, unique, access tokens that provide the means of authentication for your service (which is now an OAuth client) to allow logins. 
+OAuth Providers (Facebook, Google, etc), operate through private, unique, access tokens that provide the means of authentication for your service (the "OAuth client") to allow logins. 
 
 In this process, you will need to register your server as a OAuth Client. This will usually set you up with a `client id`, and `client secret`. Users that login to your service will be reloacted to the OAuth Provider where the user can confirm that they do indeed want to "login" (aka, allow the server they are logging in to, to have access to any required information from the OAuth Provider. )
+
+In the case of our friend Beorn...
+
+- Beorn goes to `http://knittingworld.com` to get some nice yarn.
+- Beorn decides to login using his Google account.
+- Beorn is prompted to enter his google account credentials (in the case that he already isn't logged in)
+- After entering his credentials Google (or whatever OAuth provider he uses) will prompt him to check that he wants to sign into `http://knittinggworld.com` with his Google account.
+- After accepting, Beorn is redirected to `http://knittingworld.com`.
+- If `knittingworld` needs access to resource regarding Beorn's information it can make requests to a `resource server` (via the OAuth provider) to access then, provided it's access token is valid.
 
 
 From the [OWASP Authentication Cheat Sheet](https://www.owasp.org/index.php/Authentication_Cheat_Sheet#OAuth)
@@ -227,7 +236,43 @@ Links
 
 [A Fun explanation of OAuth involving Donuts](http://stackoverflow.com/a/32534239)
 
-## OpenId
+## [OpenId](https://en.wikipedia.org/wiki/OpenID)
+
+OpenId is another authentication protocol that (like OAuth) does not require a password. The OpenId [website](http://openid.net/get-an-openid/what-is-openid/) has a very succinct and clear description, in my opinion:
+
+> OpenID allows you to use an existing account to sign in to multiple websites, without needing to create new passwords.
+
+> You may choose to associate information with your OpenID that can be shared with the websites you visit, such as a name or email address. With OpenID, you control how much of that information is shared with the websites you visit.
+
+> With OpenID, your password is only given to your identity provider, and that provider then confirms your identity to the websites you visit.  Other than your provider, no website ever sees your password, so you don’t need to worry about an unscrupulous or insecure website compromising your identity.
+
+Although started in 2005, More recently (2014 ish), OpenId published `OpenId Connect` which is an "interoperable authentication protocol based on the OAuth 2.0 family of specifications" ([Quote](http://openid.net/connect/faq/))
+
+**What's the Difference between this and OAuth?**
+
+OpenId is similar to OAuth, but has some differences. In similarity, OpenId relies on an Identity, `Provider` that interacts with third party `relying parties` (the site you are logging into) to provide authentication credentials. 
+
+Dissimilarly, you might use OAuth to allow the site you are logging into, to have access to your data from the Provider. That might sound scary and confusing but here's a simple example:
+
+- Beorn signs up for twitter. He is going to tweet pictures of the sweet hat he's knitting.
+- Beorn doens't know whom to follow, and nobody is following him. Beorn is sad and feels unimportant.
+- Twitter prompts Beorn to use OAuth to connect his Google account so that he can import his contacts that also have Twitter.
+- Beorn does this, and now he is tweeting non-stop.
+
+Links:
+
+[What is OpenId?](http://openid.net/get-an-openid/what-is-openid/)
+[OpenId Connect FAQ](http://openid.net/connect/faq/)
+[OpenId Connect Video](https://www.youtube.com/watch?v=Kb56GzQ2pSk)
+[What's the differene between OpenId vs OAuth?](http://stackoverflow.com/questions/3376141/openid-vs-oauth?rq=1)
+[What's the differene between OpenId vs OAuth? (different thread)](http://stackoverflow.com/questions/1087031/whats-the-difference-between-openid-and-oauth)
+[OpenId according to Dave -- I like this one, albeit dated](https://www.youtube.com/watch?v=xcmY8Pk-qEk)
+
+***
+
+Here's an image of Stack Overflow's login page, that offers many different authentication methods:
+
+![](images/SO_login.png)
 
 ## Token based Authentication
 
