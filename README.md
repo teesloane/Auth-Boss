@@ -14,11 +14,11 @@ Become an Auth Boss. Learn about different authentication methodologies on the w
 - [General Best Practices](#general-best-practices)
 - [Terminology](#terminology)
   - [HTTP](#http)
-    - [HTTPS](#https)
-    - [TLS / SSL](#tls--ssl)
-    - [State](#state)
-    - [Cookies](#cookies)
-    - [Sessions / Session Management](#sessions--session-management)
+  - [HTTPS](#https)
+  - [TLS / SSL](#tls--ssl)
+  - [State](#state)
+  - [Cookies](#cookies)
+  - [Sessions / Session Management](#sessions--session-management)
 - [Methodologies](#methodologies)
   - [HTTP Basic Authentication](#http-basic-authentication)
   - [Session based Authentication](#session-based-authentication)
@@ -94,7 +94,7 @@ _Other Links on this topic_:
 - [rfc7235](https://tools.ietf.org/html/rfc7235) — http documentation specifically regarding Authentication. Another large, and (in my opinion) scary looking doc. I have not read this, nor the link above.
 
 
-### [HTTPS](https://en.wikipedia.org/wiki/HTTPS)
+## [HTTPS](https://en.wikipedia.org/wiki/HTTPS)
 
 HTTPS is HTTP with more security. It goes hand in hand with `SSL / TLS`. Originally made popular for payment transaction over the internet, it has become much more common lately. You may recognize https as `that green text that shows up to the left of my url in the browser`; often accompanied by an icon of a lock, or something of the sort.
 
@@ -106,13 +106,13 @@ From wikipedia:
 
 > HTTPS creates a secure channel over an insecure network. This ensures reasonable protection from eavesdroppers and man-in-the-middle attacks, provided that adequate cipher suites are used and that the server certificate is verified and trusted.
 
-### [TLS / SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security)
+## [TLS / SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security)
 
 TLS and SSL are a cryptographic protocol. TLS and SSL encrypt the data you send across a network — it is designed to prevent people from "eavesdropping" or tampering with the data that you are sending.
 
 There are some useful videos on youtube that help to explain some of these complex topics, but unfortunately I can't speak to the veracity of them all. This [video by MIT opencourseware](https://www.youtube.com/watch?v=S2iBR2ZlZf0) looks relatively useful!
 
-### [State](https://en.wikipedia.org/wiki/State_(computer_science))
+## [State](https://en.wikipedia.org/wiki/State_(computer_science))
 
 This document will make reference to the terms `state`, `stateful`, `stateless` and `piece of state`. These are broad terms, that vary in their definition. For the sake of this article, a "piece of state" or something that is "stateful" is describing a piece of data that is living in memory...somewhere. 
 
@@ -124,7 +124,7 @@ To perhaps overstate / over explain ... I think that this quote from the Scotch.
 Since the HTTP protocol is stateless, this means that if we authenticate a user with a username and password, then on the next request, our application won’t know who we are. We would have to authenticate again.
 ```
 
-### [Cookies](https://en.wikipedia.org/wiki/HTTP_cookie)
+## [Cookies](https://en.wikipedia.org/wiki/HTTP_cookie)
 
 Cookies, at the very base level, are small pieces of data that get stored on a _user's browser_. Cookies, in contrast to HTTP are _stateful_ — meaning that while HTTP cannot store user information, but cookies can. 
 
@@ -144,7 +144,7 @@ You can see what cookies are sent with requests by navigating to your (using Chr
 
 You can also view cookies / storage related information in the "Application" tab in your developer tools.
 
-### [Sessions](https://en.wikipedia.org/wiki/Session_(web_analytics)) / [Session Management](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)
+## [Sessions](https://en.wikipedia.org/wiki/Session_(web_analytics)) / [Session Management](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)
 
 Rather than attempt to begin with my simplistic attempt at describing Sessions, I will quote from the OWASP session management cheat sheet:
 
