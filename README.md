@@ -145,17 +145,7 @@ Rather than attempt to begin with my simplistic attempt at describing Sessions, 
 
 > A web session is a sequence of network HTTP request and response transactions associated to the same user. Modern and complex web applications require the retaining of information or status about each user for the duration of multiple requests. Therefore, sessions provide the ability to establish variables – such as access rights and localization settings – which will apply to each and every interaction a user has with the web application for the duration of the session.
 
-A step-by-step, general example:
-
-- Beorn goes to `http://knittingworld.com` to get some nice yarn.
-- When Beorn logs in, he is sending his credentials to a server.
-- When the credentials reach the server, the server, in one way or another, needs to check if Beorn is a user in their database. At this point, Beorn is not yet logged in.
-- The server looks in the database to see if Beorn's username and password match a record in the database. It does! Excellent, things are looking good!
-- Note: This is where things get a bit tricky. HTTP is _stateless_ ... that means that there is no persistent data that sticks around in HTTP requests — so right now, although Beorn is "in the middle of logging in" — there's nothing (yet) to identify him as "logged in" on future requests. He needs something to _identify_ him on future requests to the server—especially if he's trying to buy things that require him to be logged in. This is where the idea of authentication sessions come in:
-- Now that the server knows who Beorn is, and has identified him as a user proper in the database, the server will send him (or "return" ) a special "token" or "session id" — that can identify Beorn as someone who is "logged in" on future requests. 
-- Note: the return "token" or "session id" has commonly been in the form of cookies — session cookies — but it is becoming more common to use token's (such as JSON Web Tokens)
-- When Beorn logs out from `http://knittingworld.com`, his session id will expire (so that next time he visits, he will have to log in again).
-
+You can find a step-by-step example of session-based authentication in the `Methodologies` section below.
 
 More links on sessions:
 
@@ -185,7 +175,7 @@ Some important notes on HTTP Basic Authentication
 
 - The example authorization header above does not look like a username and password, but that is because it is base64 encoded. IT IS NOT ENCRYPTED.
 - USE HTTPS. If you just use HTTP, authentication credentials are sent to a server as PLAIN TEXT. A user's username and password are being sent over the wire merely as base64 encoded text — which is trivial to decode. By using HTTPS / SSL you are ensuring that data sent from the client to the server is encrypted.
-- The use of HTTPS / SSL might Basic Auth a viable method for your authentication solution but there are still some caveats. 
+- The use of HTTPS / SSL might make Basic Auth a viable method for your authentication solution but there are still some caveats. 
 - There needs to be _some_ sort of caching of a username / password, _because_ HTTP requests are stateless; credentials _have_ to be sent to the server on every request!
 - Where are you going to cache a user's password + username? Will it be visible in a cookie? Is that secure? You could perhaps run an encryption algorithm on credentials and store it as a cookie, but it's still public visible in your browser. Continuing on...
 - When the password arrives at the server, it will be hashed by your encryption algorithm (which you absolutely should have ) to see if it matches the password in the database. Some people argue that the processing power to encrypt passwords / check on every request is not efficient. I have no say in this matter because I don't know. But consider that idea as you look into other authentication methods.
@@ -201,9 +191,21 @@ Some of these links are opinionated. I did not find many articles discussing Bas
 
 [Why the hell does your api still use basic auth?](http://swaggadocio.com/post/48223179207/why-the-hell-does-your-api-still-use-http-basic)
 
-## HTTP digital access authentication
-
 ## Session based Authentication
+
+Session authentication has been around for a while and seems to be largely advocated. People seem to be moving away from sessions as other options (token based authentication) seem to leverage more modern web architectures (RESTful apis, state-lessness, authentication across more than one API, microservices etc). The key component to Session based authentication, is that a user's login is associated with a _piece of state_ either _in memory_ on the server, or in a key value store (like Redis).
+
+Let's look at an example of our friend Beorn using session based authentication. 
+
+- Beorn goes to `http://knittingworld.com` to get some nice yarn.
+- When Beorn logs in, he is sending his credentials to a server.
+- When the credentials reach the server, the server, in one way or another, needs to check if Beorn is a user in their database. At this point, Beorn is not yet logged in.
+- The server looks in the database to see if Beorn's username and password match a record in the database. It does! Excellent, things are looking good!
+- Note: This is where things get a bit tricky. HTTP is _stateless_ ... that means that there is no persistent data that sticks around in HTTP requests — so right now, although Beorn is "in the middle of logging in" — there's nothing (yet) to identify him as "logged in" on future requests. He needs something to _identify_ him on future requests to the server—especially if he's trying to buy things that require him to be logged in. This is where the idea of authentication sessions come in:
+- Now that the server knows who Beorn is, and has identified him as a user proper in the database, the server will send him (or "return" ) a cookie — that can identify Beorn as someone who is "logged in" on future requests. 
+- Now that Beorn is authenticated and has a session cookie on his browser, he can go check out the yarn that is on sale for logged in members only. When Beorn goes to the page `http://knittingworld.com/great_deals.html` he is making yet another HTTP request - but this time, his session cookie will ride along with the HTTP request to the server, which this time, the server will authenticated based on the cookie matching the in-memory session information (saving the need to run to the database, check passwords, etc — like in Basic Auth)
+- When Beorn logs out from `http://knittingworld.com`, his session id will expire and so will his session cookie.
+ 
 
 ## OAuth
 
