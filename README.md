@@ -103,7 +103,7 @@ HTTPS is HTTP with more security. It goes hand in hand with `SSL / TLS`. Origina
 
 HTTPS is HTTP wrapped in TLS (or, in the olden days, SSL) to protect traffic between browsers and servers.
 
-HTTPS encrypts the information that's sent along with your HTTP requests. This is particularly important when we start talking about authentication!
+HTTPS encrypts the information that's sent along with your HTTP requests and the responses that are sent back. This is particularly important when we start talking about authentication!
 
 From wikipedia:
 
@@ -113,6 +113,8 @@ From wikipedia:
 ## [TLS / SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security)
 
 TLS and SSL are cryptographic protocols. TLS and SSL encrypt the data you send across a network — it is designed to prevent people from "eavesdropping" or tampering with the data that you are sending.
+
+SSLv2 and v3 are considered insecure today (see [POODLE](https://en.wikipedia.org/wiki/POODLE)), so most HTTPS is done with TLS 1.2.
 
 There are some useful videos on youtube that help to explain some of these complex topics, but unfortunately I can't speak to the veracity of them all. This [video by MIT opencourseware](https://www.youtube.com/watch?v=S2iBR2ZlZf0) looks relatively useful!
 
