@@ -95,7 +95,6 @@ _Other links on this topic_:
 
 - [HTTP Made Really Easy](http://www.jmarshall.com/easy/http/#whatis)
 - [RFC2616](https://tools.ietf.org/html/rfc2616) — this is a massive document-spec-thing on HTTP. It is listed as outdated, but also lists the documents that have superseded it.
-- [RFC7235](https://tools.ietf.org/html/rfc7235) — HTTP documentation specifically regarding Authentication. Another large, and (in my opinion) scary looking doc. I have not read this, nor the link above.
 
 
 ## [HTTPS](https://en.wikipedia.org/wiki/HTTPS)
