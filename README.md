@@ -31,9 +31,9 @@ Become an Auth Boss. Learn about different authentication methodologies on the w
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 # Introduction
 
-The intention of this document is to chronicle and catalogue the methodologies of _authentication_ on the web. By _authentication_ I am referring to the process of creating a system through which user's can "login" to an online service and be given access to otherwise protected resources.
+The intention of this document is to chronicle and catalogue the methodologies of _authentication_ on the web. By _authentication_ I am referring to the process of creating a system through which users can "login" to an online service and be given access to otherwise protected resources.
 
-This quote might better sum up what I'm trying to cover:
+The following quote might better sum up what I'm trying to cover:
 
 > Client authentication involves proving the identity of a client (or user) to a server on the Web.[1]
 
@@ -70,7 +70,7 @@ Some of these following items may not directly pertain to login/authentication/u
 
 - Never store passwords as plain text in a database.
 - Never write your own hashing algorithm (unless you're really really smart)
-- Do not write your own authentication technology, again, unless you're really really smart.
+- Do not write your own authentication technology (again, unless you're really really smart).
 - Use [HTTPS](https://en.wikipedia.org/wiki/HTTPS).
 
 **Some quotes**
@@ -80,7 +80,7 @@ Some of these following items may not directly pertain to login/authentication/u
 
 # Terminology
 
-There is a quite a bit of jargon in this sub-set of web development. Below is a list of terms that you will see again and again when it comes to authentication. Each word will link to a defintion I have found, but the descriptions written are my attempts to create a concise summary in lay-person terms.
+There is quite a bit of jargon in this sub-set of web development. Below is a list of terms that you will see again and again when it comes to authentication. Each word will link to a defintion that I have found, but the descriptions written are my attempts to create a concise summary in lay-person terms.
 
 
 ## [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
@@ -99,7 +99,7 @@ _Other links on this topic_:
 
 ## [HTTPS](https://en.wikipedia.org/wiki/HTTPS)
 
-HTTPS is HTTP with more security. It goes hand in hand with `SSL / TLS`. Originally made popular for payment transaction over the internet, it has become much more common lately. You may recognize https as "that green text that shows up to the left of my url in the browser"; often accompanied by an icon of a lock or something of the sort.
+HTTPS is HTTP with more security. It goes hand in hand with `SSL / TLS`. Originally made popular for payment transactions over the internet, it has become much more common lately. You may recognize https as "that green text that shows up to the left of my url in the browser"; often accompanied by an icon of a lock or something of the sort.
 
 HTTPS is HTTP wrapped in TLS (or, in the olden days, SSL) to protect traffic between browsers and servers.
 
@@ -140,11 +140,11 @@ Beorn visits `http://knittingworld.com` to buy some nice yarn and materials for 
 
 There are different kinds of cookies. Some cookies will stick around in your browser for many days, while others will disappear as soon as you close your browser.
 
-Cookies have played a big role in authentication in the past (and still do). Authentication cookies are commonly used by web servers to determing whether a user is logged in or not and what resources they have access to.
+Cookies have played a big role in authentication in the past (and still do). Authentication cookies are commonly used by web servers to determine whether a user is logged in or not and what resources they have access to.
 
-[Persistent cookies](https://en.wikipedia.org/wiki/HTTP_cookie#Persistent_cookie) sometimes carry a negative connotation, in that they may be used by advertisers to record information about a user's web habits. On the other hand, they are also often used so that a user does not have to constantly re-enter their login credentials everytime a user visits a site.
+[Persistent cookies](https://en.wikipedia.org/wiki/HTTP_cookie#Persistent_cookie) sometimes carry a negative connotation, in that they may be used by advertisers to record information about a user's web habits. On the other hand, they are often used to save a user from having to re-enter their login credentials every time they visit a site.
 
-You can see what cookies are sent with requests by navigating to your (using Chrome, for example) developer tools and opening the `network tab`. Refreshing your page will display a list of incoming resources, of which you can select one and view the `headers` for the page. Scroll through the list and see if you find any cookies!
+You can see what cookies are sent with requests by navigating to your (using Chrome, for example) developer tools and opening the `network` tab. Refreshing your page will display a list of incoming resources, of which you can select one and view the `headers` for the page. Scroll through the list and see if you find any cookies!
 
 You can also view cookies / storage related information in the "Application" tab in your developer tools.
 
@@ -172,7 +172,7 @@ It's time to get into actual examples of authentication methods!. Following is a
 HTTP Basic authentication (or "Basic Auth") has been around for quite some time. It seems that people tend to use it for it's simplicity and it's wide support across browsers. [Here is a blank page](https://httpbin.org/basic-auth/user/passwd) that asks for Basic auth. Here's how it would work in the case of our friend Beorn:
 
 - Beorn goes to `http://knittingworld.com` to get some nice yarn.
-- After picking out his yarn, he clicks "Login" to buy it.
+- After picking out his yarn, he clicks "Buy" to buy it.
 - His browser makes a GET request and the server responds that he needs to authenticate (by sending a `401 Unauthorized` status and a `WWW-Authenticate` header).
 - Beorn types in his username and password into a login form.
 - His browser makes the GET request with an `Authorization` header. This header might look something like this:
@@ -206,22 +206,22 @@ Let's look at an example of our friend Beorn using session based authentication.
 - When the credentials reach the server, the server, in one way or another, needs to check if Beorn is a user in their database. At this point, Beorn is not yet logged in.
 - Beorn's credentials checkout, so he can log in.
 - Beorn needs something to _identify_ him on future requests to the server — especially if he's trying to buy things that require him to be logged in. This is where the idea of authenticated sessions come in.
-- Now that the server knows who Beorn is, and has identified him as a user proper in the database, the server will send him (or "return" ) a cookie — that can identify Beorn as someone who is "logged in" on future requests.
+- Now that the server knows who Beorn is, and has identified him as a user in the database, the server will send him (or "return") a cookie — that can identify Beorn as someone who is "logged in" on future requests.
 - Now that Beorn is authenticated and has a session cookie on his browser, he can go check out the yarn that is on sale for logged in members only.
 - When Beorn goes to the page `http://knittingworld.com/great_deals.html` he is making yet another HTTP request - but this time, his session cookie will ride along with the HTTP request to the server.
-- the server will authenticated based on the cookie matching the in-memory session information (saving the need to run to the database, check passwords, etc — like in Basic Auth)
+- the server will authenticate based on the cookie matching the in-memory session information (saving the need to run to the database, check passwords, etc — like in Basic Auth)
 - When Beorn logs out from `http://knittingworld.com`, his session instance on the server (or on Redis etc) will expire and so will his session cookie.
 
 
 ## Token based Authentication
 
-Token based authentication has become more popular lately, with the rise of RESTful APIs, single-page-apps and micro-services.
+Token based authentication has become more popular lately with the rise of RESTful APIs, single-page-apps and micro-services.
 
 **What is a token?**
 
 A token is a small piece of data.
 
-An authentication system that leverages token-based-authentication means that requests a user makes to a server carries a token along with it, to perform authentication logic on. When HTTP requests are made, the token is the piece of data that verifies a user's eligibility to access a resource.
+An authentication system that leverages token-based-authentication means that the requests a user makes to a server carry a token along with them to perform authentication logic on. When HTTP requests are made, the token is the piece of data that verifies a user's eligibility to access a resource.
 
 **How is this different from cookie based authentication?**
 
@@ -254,7 +254,7 @@ A key take away is that tokens are **stateless**. A back-end server doesn't need
 
 **Wow tokens sound cool. Are they better than session based auth?**
 
-You're asking the wrong person pal. I'm just writing this to help my brain figure things out. Like most things on the internet there are lots of people with strong opinions one way or another. I'm doing my best to make it the case that you won't find those here (Although many of the links I've posted from my research are full of strong opinions or are financially biased).
+You're asking the wrong person, pal. I'm just writing this to help my brain figure things out. Like most things on the internet there are lots of people with strong opinions one way or another. I'm doing my best to make it the case that you won't find those here (Although many of the links I've posted from my research are full of strong opinions or are financially biased).
 
 For more fun disclaimers visit the `disclaimer` section above.
 
@@ -328,7 +328,7 @@ If you have ever logged into a service by using your Twitter, Google, or Faceboo
 
 OAuth Providers (Facebook, Google, etc), operate through private, unique, access tokens that provide the means of authentication for your service (the "OAuth client") to allow logins.
 
-If you want to use OAuth for your users to login to your service, you will need to register your server as a OAuth Client. This will usually set you up with a `client id`, and `client secret`. Users that login to your service will be reloacted to the OAuth Provider where the user can confirm that they do indeed want to "login" (aka, allow the server they are logging in to, to have access to any required information from the OAuth Provider. )
+If you want to use OAuth for your users to login to your service, you will need to register your server as a OAuth Client. This will usually set you up with a `client id`, and `client secret`. Users that login to your service will be relocated to the OAuth Provider where the user can confirm that they do indeed want to "login" (i.e. allow the server they are logging in to, to have access to any required information from the OAuth Provider. )
 
 In the case of our friend Beorn...
 
