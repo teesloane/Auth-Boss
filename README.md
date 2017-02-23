@@ -185,8 +185,8 @@ HTTP Basic authentication (or "Basic Auth") has been around for quite some time.
 
 - The example authorization header above does not look like a username and password, but that is because it is base64 encoded. IT IS NOT ENCRYPTED.
 - USE HTTPS if you are using Basic Auth. If you just use HTTP, authentication credentials are sent to a server as PLAIN TEXT. THIS IS BAD. A user's username and password are being sent over the wire merely as base64 encoded text — which is trivial to decode. By using HTTPS / TLS you are ensuring that data sent from the client to the server is encrypted.
-- Basic auth as implemented by browser is quite ugly and is rarely used today.
-- Basic auth for APIs combined with tokens (discussed later) is just an `Authorization` header and is perfectly reasonable. It has the added benefit of not requiring the API client maintain an extra session cookie and, since most systems log query params but not headers, will not be logged by default.
+- Basic Auth, _as implemented by the browser_, is not exactly aesthetically pleasing and is rarely used today.
+- Basic Auth with APIs, when combined with tokens, (discussed later) is just an `Authorization` header and is perfectly reasonable. It has the added benefit of not requiring the API client to maintain an extra session cookie and, since most systems log query params but not headers, will not be logged by default.
 
 **Links**
 
@@ -288,7 +288,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 
 The above string is what you might see when you are performing authentication using JWT; it is the encoded data that is returned from a server upon authentication.
 
-JWT's are verified and made secure because they are "digitally signed" and are created with a "secret key".
+JWT's are verified and made secure because they are "digitally signed" with a private-key, and authenticated with a secret key.
 
 **What makes up a JWT?**
 
