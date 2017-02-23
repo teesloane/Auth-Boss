@@ -167,7 +167,7 @@ It's time to get into actual examples of authentication methods!. Following is a
 
 ## [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
 
-HTTP Basic authentication (or "Basic Auth") has been around for quite some time. It seems that people tend to use it for it's simplicity and it's wide support across browsers. Here's how it would work in the case of our friend Beorn.
+HTTP Basic authentication (or "Basic Auth") has been around for quite some time. It seems that people tend to use it for it's simplicity and it's wide support across browsers. [Here is a blank page](https://httpbin.org/basic-auth/user/passwd) that asks for Basic auth. Here's how it would work in the case of our friend Beorn:
 
 - Beorn goes to `http://knittingworld.com` to get some nice yarn.
 - Beorn types in his username and password into a login form.
