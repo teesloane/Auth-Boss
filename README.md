@@ -213,7 +213,7 @@ Let's look at an example of our friend Beorn using session based authentication.
 - When Beorn logs out from `http://knittingworld.com`, his session instance on the server (or on Redis etc) will expire and so will his session cookie.
 
 
-## Token based Authentication
+## [Token based Authentication](http://stackoverflow.com/questions/1592534/what-is-token-based-authentication)
 
 Token based authentication has become more popular lately, with the rise of RESTful APIs, single-page-apps and micro-services.
 
@@ -272,7 +272,7 @@ Some common tokens include JWT (discussed below), SWT (Simple web tokens) and SA
 
 ## [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token)
 
-JWT stands for "JSON Web Token". JWT is a **type** of token based authentication. JWT is based on a [web standard](https://tools.ietf.org/html/rfc7519). If you are already asking yourself / me if that makes it "better" than Token based authentication, let's table that question for another time / for people who are smarter than me.
+JWT stands for "JSON Web Token". JWT is a **type** of token based authentication. JWT is based on a [web standard](https://tools.ietf.org/html/rfc7519). If you are already asking yourself / me if that makes it "better" than Token based authentication, let's table that question for another time / for people who are smarter than me. I am including a write up for JWT's here because they seem to be becoming much more common; even though they are a "subset" so to speak of the above section on "token based authentication". Once again, different methodologies of token based authentication have different pros and cons. 
 
 So, a lot of the information in the `token based authentication` section above applies here.
 
