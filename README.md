@@ -198,8 +198,6 @@ Some of these links are opinionated. I did not find many articles discussing Bas
 
 - [Why does stripe use HTTP basic auth with a token instead of a header?](https://www.quora.com/Why-does-Stripe-use-HTTP-Basic-Auth-with-a-token-instead-of-a-header?share=1)
 
-- [Why the hell does your api still use basic auth?](http://swaggadocio.com/post/48223179207/why-the-hell-does-your-api-still-use-http-basic)
-
 
 ## [Session based Authentication](https://en.wikipedia.org/wiki/Session_(web_analytics))
 
