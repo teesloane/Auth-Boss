@@ -170,26 +170,23 @@ It's time to get into actual examples of authentication methods!. Following is a
 HTTP Basic authentication (or "Basic Auth") has been around for quite some time. It seems that people tend to use it for it's simplicity and it's wide support across browsers. [Here is a blank page](https://httpbin.org/basic-auth/user/passwd) that asks for Basic auth. Here's how it would work in the case of our friend Beorn:
 
 - Beorn goes to `http://knittingworld.com` to get some nice yarn.
+- After picking out his yarn, he clicks "Login" to buy it.
+- His browser makes a GET request and the server responds that he needs to authenticate (by sending a `401 Unauthorized` status and a `WWW-Authenticate` header).
 - Beorn types in his username and password into a login form.
-- This form information makes a `POST` request to the server using an XML http request (although you might be more familiar with the term `ajax` or, `fetch` request).
-- The POST request from the client contains _headers_ that have the authorization information (username and password) attached. This header might look something like this:
+- His browser makes the GET request with an `Authorization` header. This header might look something like this:
 
 `Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==`
 
-- The server goes on to validate the authentication header and determine if a user can proceed to a restricted route or not.
+- The server goes on to validate the authentication header and determine if Beorn can proceed to his shopping cart. The browser remembers the credentials and resends them on that domain until it is closed.
 
 **Some important notes on HTTP Basic Authentication:**
 
 - The example authorization header above does not look like a username and password, but that is because it is base64 encoded. IT IS NOT ENCRYPTED.
 - USE HTTPS if you are using Basic Auth. If you just use HTTP, authentication credentials are sent to a server as PLAIN TEXT. THIS IS BAD. A user's username and password are being sent over the wire merely as base64 encoded text — which is trivial to decode. By using HTTPS / TLS you are ensuring that data sent from the client to the server is encrypted.
-- The use of HTTPS / TLS might make Basic Auth a viable method for your authentication solution but there are still some caveats to consider.
-- There needs to be _some_ sort of caching of a username / password, _because_ HTTP requests are stateless; credentials _have_ to be sent to the server on every request.
-- Where are you going to cache a user's password + username? Will it be visible in a cookie? Is that secure? You could perhaps run an encryption algorithm on credentials and store it as a cookie, but it's still publicly visible in your browser. Continuing on...
-- When the password arrives at the server, it will be hashed by your encryption algorithm (which you absolutely should have) to see if it matches the password in the database for that specific user. Some people may argue that hashing a password on every (protected) request is not an efficient use of your server. I have no say in this matter because I don't know. But consider that as you look into other authentication methods.
+- Basic auth as implemented by browser is quite ugly and is rarely used today.
+- Basic auth for APIs combined with tokens (discussed later) is just an `Authorization` header and is perfectly reasonable. It has the added benefit of not requiring the API client maintain an extra session cookie and, since most systems log query params but not headers, will not be logged by default.
 
 **Links**
-
-Some of these links are opinionated. I did not find many articles discussing Basic Auth, although it seems to still be a viable option for companies today.
 
 - [Basic Authentication on OWASP](https://www.owasp.org/index.php/Basic_Authentication)
 
