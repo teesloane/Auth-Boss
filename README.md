@@ -169,7 +169,7 @@ It's time to get into actual examples of authentication methods!. Following is a
 
 ## [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
 
-HTTP Basic authentication (or "Basic Auth") has been around for quite some time. It seems that people tend to use it for it's simplicity and it's wide support across browsers. [Here is a blank page](https://httpbin.org/basic-auth/user/passwd) that asks for Basic auth. Here's how it would work in the case of our friend Beorn:
+HTTP Basic authentication (or "Basic Auth") has been around for quite some time. It seems that people tend to use it for its simplicity and its wide support across browsers. [Here is a blank page](https://httpbin.org/basic-auth/user/passwd) that asks for Basic auth. Here's how it would work in the case of our friend Beorn:
 
 - Beorn goes to `http://knittingworld.com` to get some nice yarn.
 - After picking out his yarn, he clicks "Buy" to buy it.
@@ -337,7 +337,7 @@ In the case of our friend Beorn...
 - Beorn is prompted to enter his google account credentials (in the case that he isn't already logged in)
 - After entering his credentials, Google (or whatever OAuth provider he uses) will prompt him to check that he wants to sign into `http://knittinggworld.com` with his Google account.
 - After accepting, Beorn is redirected to `http://knittingworld.com`.
-- If `knittingworld` needs access to resource regarding Beorn's information it can make requests to a `resource server` (via the OAuth provider) to access them, provided it's access token is valid.
+- If `knittingworld` needs access to resource regarding Beorn's information it can make requests to a `resource server` (via the OAuth provider) to access them, provided its access token is valid.
 
 
 From the [OWASP Authentication Cheat Sheet](https://www.owasp.org/index.php/Authentication_Cheat_Sheet#OAuth)
@@ -360,7 +360,7 @@ OpenId is another authentication protocol that (like OAuth) does not require a p
 
 > With OpenID, your password is only given to your identity provider, and that provider then confirms your identity to the websites you visit.  Other than your provider, no website ever sees your password, so you don’t need to worry about an unscrupulous or insecure website compromising your identity.
 
-Although started in 2005, More recently (2014-ish), OpenId published `OpenId Connect` which is an "interoperable authentication protocol based on the OAuth 2.0 family of specifications" ([source](http://openid.net/connect/faq/))
+Although started in 2005, OpenId published `OpenId Connect` in 2014 which is an "interoperable authentication protocol based on the OAuth 2.0 family of specifications" ([source](http://openid.net/connect/faq/))
 
 **What's the Difference between OpenId and OAuth?**
 
