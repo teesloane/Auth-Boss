@@ -80,7 +80,7 @@ Some of these following items may not directly pertain to login/authentication/u
 
 # Terminology
 
-There is quite a bit of jargon in this sub-set of web development. Below is a list of terms that you will see again and again when it comes to authentication. Each word will link to a defintion that I have found, but the descriptions written are my attempts to create a concise summary in lay-person terms.
+There is quite a bit of jargon in this sub-set of web development. Below is a list of terms that you will see again and again when it comes to authentication. Each word will link to a definition that I have found, but the descriptions written are my attempts to create a concise summary in lay-person terms.
 
 
 ## [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
@@ -263,7 +263,7 @@ Some common tokens include JWT (discussed below), SWT (Simple web tokens) and SA
 
 **Links**
 
-- [Token Based Authentication - Implemenation Demonstration - W3](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/)
+- [Token Based Authentication - Implementation Demonstration - W3](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/)
 - [What is token based Authentication - SO](http://stackoverflow.com/questions/1592534/what-is-token-based-authentication)
 - [Token Based Authentication Made Easy](https://auth0.com/learn/token-based-authentication-made-easy/#!)
 - [The Ins and Outs of Token Based Authentication](https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication)
@@ -292,7 +292,7 @@ JWT's are verified and made secure because they are "digitally signed" with a pr
 
 **What makes up a JWT?**
 
-A JWT is a self-contained chunk of data. Every JWT is made up of a `header` a `payload` and a `signature`. When your server creates a token you can also assign unique data to your token, that can be used on the front end. This can be used to save the need for making other database calls later.
+A JWT is a self-contained chunk of data. Every JWT is made up of a `header` a `payload` and a `signature`. When your server creates a token you can also assign unique data to your token, which can be used on the front end. This can be used to save the need for making other database calls later.
 
 You should still be wary of posting confidential information in a token sent to a client.
 
@@ -328,7 +328,7 @@ If you have ever logged into a service by using your Twitter, Google, or Faceboo
 
 OAuth Providers (Facebook, Google, etc), operate through private, unique, access tokens that provide the means of authentication for your service (the "OAuth client") to allow logins.
 
-If you want to use OAuth for your users to login to your service, you will need to register your server as a OAuth Client. This will usually set you up with a `client id`, and `client secret`. Users that login to your service will be relocated to the OAuth Provider where the user can confirm that they do indeed want to "login" (i.e. allow the server they are logging in to, to have access to any required information from the OAuth Provider. )
+If you want to use OAuth for your users to login to your service, you will need to register your server as an OAuth Client. This will usually set you up with a `client id`, and `client secret`. Users that login to your service will be relocated to the OAuth Provider where the user can confirm that they do indeed want to "login" (i.e. allow the server they are logging in to, to have access to any required information from the OAuth Provider. )
 
 In the case of our friend Beorn...
 
@@ -385,7 +385,7 @@ Dissimilarly, you might use OAuth to allow the site you are logging into to have
 
 ***
 
-Here's an image of Stack Overflow's login page, that offers many different authentication methods:
+Here's an image of Stack Overflow's login page, which offers many different authentication methods:
 
 ![](images/SO_login.png)
 
