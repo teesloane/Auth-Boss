@@ -255,7 +255,7 @@ A key take away is that tokens are **stateless**. A back-end server doesn't need
 **Wow tokens sound cool. Are they better than session based auth?**
 
 You're asking the wrong person, pal. I'm just writing this to help my brain figure things out. Like most things on the internet there are lots of people with strong opinions one way or another. I'm doing my best to make it the case that you won't find those here (Although many of the links I've posted from my research are full of strong opinions or are financially biased).
-
+Session based auth can be used to remotely log out from other devices by removing the corresponding entry from the session store. In token based auth the token to be invalidated has to be kept in a database and every request thereafter has to be check againt the list of invalidated tokens.
 For more fun disclaimers visit the `disclaimer` section above.
 
 **Types of Tokens**
