@@ -324,7 +324,23 @@ In some cases, a JWT secret key may be base64 encoded — in which case, dependi
 
 ## [OAuth](https://en.wikipedia.org/wiki/OAuth)
 
-OAuth is an authentication protocol that allows users to perform an authentication against a server without a password. OAuth has seen various iterations — OAuth 1.0, OAuth 1.0a, and OAuth 2.0.
+OAuth is an _authorization_ protocol that allows users to perform an authentication against a server without a password. OAuth has seen various iterations — OAuth 1.0, OAuth 1.0a, and OAuth 2.0.
+
+At this point we could have a very pedantic conversation about Authentication and Authorization. But we shan't! Instead, the important thing to note is the following (thanks [@rohan](https://github.com/rohannair))
+
+- `Authentication` - Proving who you are.
+
+- `Authorization` - Determining what you have permission to do.
+
+This is a whole can of worms in itself. The OAuth docs state the following, plain and clear in their [Authentication](https://oauth.net/articles/authentication/) article:
+
+> OAuth 2.0 is not an authentication protocol.
+
+With that said, there is still good reason to discuss OAuth. In fact, the above article is quite well written, so I'm going to quote it here:
+
+> Authentication in the context of a user accessing an application tells an application who the current user is and whether or not they're present. A full authentication protocol will probably also tell you a number of attributes about this user, such as a unique identifier, an email address, and what to call them when the application says "Good Morning". Authentication is all about the user and their presence with the application, and an internet-scale authentication protocol needs to be able to do this across network and security boundaries.
+
+> However, OAuth tells the application none of that. OAuth says absolutely nothing about the user, nor does it say how the user proved their presence or even if they're still there. As far as an OAuth client is concerned, it asked for a token, got a token, and eventually used that token to access some API. It doesn't know anything about who authorized the application or if there was even a user there at all. In fact, much of the point of OAuth is about giving this delegated access for use in situations where the user is not present on the connection between the client and the resource being accessed. This is great for client authorization, but it's really bad for authentication where the whole point is figuring out if the user is there or not (and who they are).
 
 If you have ever logged into a service by using your Twitter, Google, or Facebook account, then you have used OAuth.
 
