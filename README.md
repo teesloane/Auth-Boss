@@ -314,6 +314,8 @@ def create_token(user):
 
 The above keys `sub`, `iat` and `exp` follow the reserved JWT keys, but I've also added the `name` of the user and what `role_id` they have. You will need to get a library for encoding/decoding JWT tokens. [JWT.io](https://jwt.io/) lists lots of libraries for many languages.
 
+In some cases, a JWT secret key may be base64 encoded — in which case, depending on your JWT library — you need to decode the secret key prior to decoding the token. 
+
 **Links**
 
 - [Introduction to JSON web tokens](https://jwt.io/introduction/)
